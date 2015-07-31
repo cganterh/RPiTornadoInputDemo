@@ -31,8 +31,15 @@ class Handler(RequestHandler):
 
         self.get()
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(4, GPIO.OUT)
+try:
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(4, GPIO.OUT)
 
-Application([('/$', Handler)]).listen(53000)
-IOLoop.instance().start()
+    Application([('/$', Handler)]).listen(50000)
+    IOLoop.instance().start()
+
+except KeyboardInterrupt:
+    exit()
+
+finally:
+    GPIO.cleanup()
