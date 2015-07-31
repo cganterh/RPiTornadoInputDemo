@@ -52,7 +52,7 @@ try:
     GPIO.setup(4, GPIO.OUT)
     GPIO.setup(22, GPIO.IN)
 
-    Application([('/$', Handler)]).listen(53000)
+    Application([('/$', Handler)]).listen(50000)
     PeriodicCallback(test_night, 100).start()
     IOLoop.instance().start()
 
